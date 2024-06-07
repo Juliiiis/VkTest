@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vk/widgets/auth/auth_widget_login.dart';
 import 'package:vk/widgets/auth/auth_widget_password.dart';
-import 'package:vk/widgets/auth/main_screen/main_screen_widget.dart';
+import 'package:vk/widgets/main_screen/main_screen_widget.dart';
 
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
       routes: {

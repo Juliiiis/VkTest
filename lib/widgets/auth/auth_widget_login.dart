@@ -19,7 +19,7 @@ class _AuthWidgetLoginState extends State<AuthWidgetLogin> {
                 width: 30,
                 height: 30,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.blue.shade400,
                   borderRadius: BorderRadius.circular(7),
                 ),
                 child: const Center(
@@ -95,7 +95,7 @@ class _FormWidgetLogin extends StatefulWidget {
 }
 
 class _FormWidgetLoginState extends State<_FormWidgetLogin> {
-  final _loginTextController = TextEditingController();
+  final _loginTextController = TextEditingController(text: 'admin');
   String? errorText;
 
   void _auth(){
@@ -181,9 +181,9 @@ class _FormWidgetLoginState extends State<_FormWidgetLogin> {
           const SizedBox(height: 10),
           ElevatedButton(
             style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
+                backgroundColor: MaterialStateProperty.all(Colors.blue.shade400),
                 foregroundColor: MaterialStateProperty.all(Colors.white),
-                fixedSize: MaterialStateProperty.all(const Size(400, 50)),
+                fixedSize: MaterialStateProperty.all(const Size(446, 50)),
                 shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
