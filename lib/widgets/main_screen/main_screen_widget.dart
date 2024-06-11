@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vk/widgets/news_list/news_list_widget.dart';
-
-
+import 'package:vk/data/news.dart';
+import 'package:vk/ui_kit/images.dart';
+import 'package:vk/widgets/news_item/news_item_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -12,72 +12,161 @@ class MainScreenWidget extends StatefulWidget {
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
+  final _searchController = TextEditingController();
 
-  void onSelectedTab(int index){
-    if(_selectedTab == index) return;
+  final _news = [
+    News(
+      imageName: Images.cat,
+      title: 'Котики',
+      time: 'вчера в 15:39',
+    ),
+    News(
+      imageName: Images.cat,
+      title: 'Энциклопедия серийных убийц',
+      time: 'вчера в 15:39',
+    ),
+    News(
+      imageName: Images.cat,
+      title: 'Ставрополь',
+      time: 'вчера в 15:39',
+    ),
+    News(
+      imageName: Images.cat,
+      title: 'Погода',
+      time: 'вчера в 15:39',
+    ),
+    News(
+      imageName: Images.cat,
+      title: 'Новости',
+      time: 'вчера в 15:39',
+    ),
+    News(
+      imageName: Images.cat,
+      title: 'Сплетни',
+      time: 'вчера в 15:39',
+    ),
+    News(
+      imageName: Images.cat,
+      title: 'Мстители',
+      time: 'вчера в 15:39',
+    ),
+    News(
+      imageName: Images.cat,
+      title: 'Не новости',
+      time: 'вчера в 15:39',
+    ),
+  ];
+
+  var _filteredNews = <News>[];
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredNews = _news;
+    _searchController.addListener(_search);
+  }
+
+  void _search() {
+    final query = _searchController.text;
+    if (query.isNotEmpty) {
+      _filteredNews = _news.where((News news) {
+        return news.title.toLowerCase().contains(query.toLowerCase());
+      }).toList();
+    } else {
+      _filteredNews = _news;
+    }
+    setState(() {});
+  }
+
+  void onSelectedTab(int index) {
+    if (_selectedTab == index) return;
     setState(() {
       _selectedTab = index;
     });
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            title: const Text(
-              'Главная',
-              style: TextStyle(
-                color: Colors.white,
+      body: ColoredBox(
+        color: Colors.grey.shade100,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                title: const Text(
+                  'Главная',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                floating: true,
+                flexibleSpace: Container(
+                  color: Colors.blue.shade400,
+                ),
+                bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(50),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: TextField(
+                      controller: _searchController,
+                      decoration: InputDecoration(
+                        labelText: 'Поиск',
+                        filled: true,
+                        fillColor: Colors.white.withAlpha(235),
+                        border: const OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-            ),
-            floating: true,
-            flexibleSpace: Container(
-              color: Colors.blue.shade400,
-            ),
-            expandedHeight: 50,
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    final news = _filteredNews[index];
+                    return NewsItemWidget(newsItem: news);
+                  },
+                  childCount: _filteredNews.length,
+                ),
+              ),
+            ],
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-                  (context, index) => const ListTile(title: Text('.....'),),
-              childCount: 1000,
-            ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedTab,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Главная',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.widgets),
+            label: 'Сервисы',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_outline),
+            label: 'Чаты',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.whatshot),
+            label: 'Клипы',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.play_circle_outline),
+            label: 'Видео',
           ),
         ],
+        onTap: onSelectedTab,
       ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedTab,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'Главная',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.widgets),
-              label: 'Сервисы',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble_outline),
-              label: 'Чаты',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.whatshot),
-              label: 'Клипы',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.play_circle_outline),
-              label: 'Видео',
-            ),
-          ],
-          onTap: onSelectedTab,
-        ),
-       );
-    }
+    );
   }
+}
 
-  /*  @override
+/*  @override
   Widget build(BuildContext context){
     return Scaffold(
         appBar: AppBar(
@@ -123,4 +212,3 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       );
     }
   }*/
-
