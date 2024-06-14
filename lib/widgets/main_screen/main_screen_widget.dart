@@ -84,6 +84,9 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       _selectedTab = index;
     });
   }
+  void _onTabAvatar(){
+    Navigator.of(context).pushNamed('/profile');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,18 +99,43 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
           child: CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
+                leading: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: GestureDetector(
+                    onTap: _onTabAvatar,
+                      child: const CircleAvatar(),
+                  ),
+                ),
                 title: const Text(
                   'Главная',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 floating: true,
                 flexibleSpace: Container(
-                  color: Colors.blue.shade400,
+                  color: Colors.white,
                 ),
-                bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(50),
+                actions:  <Widget>[
+                  IconButton(
+                    color: Colors.blue,
+                      onPressed: () {},
+                      icon: const Icon(Icons.add_circle_outline),
+                  ),
+                  IconButton(
+                    color: Colors.blue,
+                      onPressed: () {},
+                      icon: const Icon(Icons.search),
+                  ),
+                  IconButton(
+                    color: Colors.blue,
+                      onPressed: () {},
+                      icon: const Icon(Icons.notifications_none),
+                  ),
+                ],
+                /*bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(60),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextField(
@@ -120,7 +148,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                       ),
                     ),
                   ),
-                ),
+                ),*/
               ),
               SliverList(
                 delegate: SliverChildBuilderDelegate(

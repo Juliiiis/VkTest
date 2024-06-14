@@ -37,8 +37,8 @@ class _NewsItemWidgetState extends State<NewsItemWidget> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      width: 40,
-                      height: 40,
+                      width: 30,
+                      height: 30,
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.grey
@@ -53,12 +53,13 @@ class _NewsItemWidgetState extends State<NewsItemWidget> {
                     children: [
                       Text(news.title,
                         style: const TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500
                         ),
                       ),
                       Text(news.time,
                         style: const TextStyle(
+                          fontSize: 12,
                             color: Colors.grey
                         ),
                       ),
