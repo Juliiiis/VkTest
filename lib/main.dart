@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vk/widgets/auth/auth_widget_login.dart';
 import 'package:vk/widgets/auth/auth_widget_password.dart';
 import 'package:vk/widgets/main_screen/main_screen_widget.dart';
-import 'package:vk/widgets/profile/profile_widget.dart';
+import 'package:vk/widgets/profile/profile_screen.dart';
 
 
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
        '/authLogin' : (context) => const AuthWidgetLogin(),
         '/authPassword' : (context) => const AuthWidgetPassword(),
         '/main_screen' : (context) => const MainScreenWidget(),
-        '/profile' : (context) => const ProfileWidget(),
+        '/profile' : (context) => const ProfileScreen(),
       },
       initialRoute: '/authLogin',
     );
