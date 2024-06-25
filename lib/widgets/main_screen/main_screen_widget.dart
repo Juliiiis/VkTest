@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vk/data/news.dart';
 import 'package:vk/ui_kit/images.dart';
+import 'package:vk/widgets/main_screen/add_menu_items.dart';
 import 'package:vk/widgets/news_item/news_item_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
@@ -88,11 +89,17 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
     Navigator.of(context).pushNamed('/profile');
   }
 
+  String item1 = 'История';
+  String item2 = 'Запись';
+  String item3 = 'Фото';
+  String item4 = 'Клип';
+  String item5 = 'Трансляция';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ColoredBox(
-        color: Colors.grey.shade100,
+        color: Colors.blue.shade50,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -118,10 +125,20 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                   color: Colors.white,
                 ),
                 actions:  <Widget>[
-                  IconButton(
-                    color: Colors.blue,
-                      onPressed: () {},
-                      icon: const Icon(Icons.add_circle_outline),
+                  PopupMenuButton<String>(
+                    icon: const Icon(Icons.add_circle_outline,
+                      color: Colors.blue,
+                    ),
+                    itemBuilder: (BuildContext context){
+                      return MenuItems.choice.map((String choice) {
+                        return PopupMenuItem<String>(
+                          value: choice,
+                            child: ListTile(
+                              title: Icon(MenuItems.choiceIcons[choice]),
+                              leading: Text(choice),
+                        ));
+                      }).toList();
+                    },
                   ),
                   IconButton(
                     color: Colors.blue,
