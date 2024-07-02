@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vk/data/news.dart';
 import 'package:vk/ui_kit/images.dart';
+import 'package:vk/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:vk/widgets/main_screen/add_menu_items.dart';
 import 'package:vk/widgets/news_item/news_item_widget.dart';
 
@@ -180,33 +181,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedTab,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Главная',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.widgets),
-            label: 'Сервисы',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline),
-            label: 'Чаты',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.whatshot),
-            label: 'Клипы',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.play_circle_outline),
-            label: 'Видео',
-          ),
-        ],
-        onTap: onSelectedTab,
-      ),
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }

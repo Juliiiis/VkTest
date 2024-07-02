@@ -39,6 +39,7 @@ class _PublicationButtonState extends State<PublicationButton> {
         context: context,
         builder: (BuildContext context){
           return const Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
                 leading: Icon(Icons.photo_filter),
@@ -60,7 +61,6 @@ class _PublicationButtonState extends State<PublicationButton> {
                 leading: Icon(Icons.radio_button_checked),
                 title: Text('Трансляция'),
               ),
-
             ],
           );
         }

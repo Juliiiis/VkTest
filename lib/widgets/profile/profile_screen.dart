@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vk/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:vk/widgets/profile/widgets/friends_widget.dart';
+import 'package:vk/widgets/profile/widgets/media/media_widget.dart';
 import 'package:vk/widgets/profile/widgets/user_card_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -23,8 +25,11 @@ class _ProfileState extends State<ProfileScreen> {
           UserCardWidget(),
           SizedBox(height: 8),
           FriendsWidget(),
+          SizedBox(height: 8),
+          MediaWidget(),
         ],
       ),
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }
