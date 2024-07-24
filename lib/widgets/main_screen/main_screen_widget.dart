@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vk/data/news.dart';
-import 'package:vk/ui_kit/images.dart';
+import 'package:vk/data/news_data.dart';
 import 'package:vk/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:vk/widgets/main_screen/add_menu_items.dart';
 import 'package:vk/widgets/news_item/news_item_widget.dart';
@@ -16,66 +16,23 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
   final _searchController = TextEditingController();
 
-  final _news = [
-    News(
-      imageName: Images.cat,
-      title: 'Котики',
-      time: 'вчера в 15:39',
-    ),
-    News(
-      imageName: Images.cat,
-      title: 'Энциклопедия серийных убийц',
-      time: 'вчера в 15:39',
-    ),
-    News(
-      imageName: Images.cat,
-      title: 'Ставрополь',
-      time: 'вчера в 15:39',
-    ),
-    News(
-      imageName: Images.cat,
-      title: 'Погода',
-      time: 'вчера в 15:39',
-    ),
-    News(
-      imageName: Images.cat,
-      title: 'Новости',
-      time: 'вчера в 15:39',
-    ),
-    News(
-      imageName: Images.cat,
-      title: 'Сплетни',
-      time: 'вчера в 15:39',
-    ),
-    News(
-      imageName: Images.cat,
-      title: 'Мстители',
-      time: 'вчера в 15:39',
-    ),
-    News(
-      imageName: Images.cat,
-      title: 'Не новости',
-      time: 'вчера в 15:39',
-    ),
-  ];
-
   var _filteredNews = <News>[];
 
   @override
   void initState() {
     super.initState();
-    _filteredNews = _news;
+    _filteredNews = news;
     _searchController.addListener(_search);
   }
 
   void _search() {
     final query = _searchController.text;
     if (query.isNotEmpty) {
-      _filteredNews = _news.where((News news) {
+      _filteredNews = news.where((News news) {
         return news.title.toLowerCase().contains(query.toLowerCase());
       }).toList();
     } else {
-      _filteredNews = _news;
+      _filteredNews = news;
     }
     setState(() {});
   }

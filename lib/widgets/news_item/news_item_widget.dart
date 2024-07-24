@@ -69,7 +69,7 @@ class _NewsItemWidgetState extends State<NewsItemWidget> {
               ],
             ),
             const SizedBox(height: 10),
-            Image(image: news.imageName),
+            Image.asset('assets/images/cat.jpg'),
             const SizedBox(height: 10),
             const Row(
               children: [
