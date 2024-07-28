@@ -5,35 +5,14 @@ class HeaderWidgetLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const textStyle = TextStyle(
-        fontSize: 16,
-        color: Colors.grey
-    );
-    return const Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 25,
-        vertical: 10,
-      ),
-      child: Column(
-        children: [
-          SizedBox(height: 10),
-          Text(
-            'Вход ВКонтакте',
-            style: TextStyle(
-                fontSize: 25,
-                color: Colors.black
-            ),
-          ),
-          SizedBox(height: 10),
-          Text('Введите телефон или почту, которые',
-            style: textStyle,
-          ),
-          Text('привязаны к аккаунту',
-            style: textStyle,
-          ),
-          SizedBox(height: 20),
-        ],
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: 438,
+            width: 316,
+            child: Image.asset('assets/images/welcome_dog.png')
+        ),
+      ],
     );
   }
 }
