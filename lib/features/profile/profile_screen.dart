@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vk/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:vk/widgets/profile/widgets/friends_widget.dart';
-import 'package:vk/widgets/profile/widgets/media/media_widget.dart';
-import 'package:vk/widgets/profile/widgets/user_card_widget.dart';
+import 'package:vk/features//profile/widgets/friends_widget.dart';
+import 'package:vk/features/profile/widgets/media/media_widget.dart';
+import 'package:vk/features/profile/widgets/user_card_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -29,7 +28,6 @@ class _ProfileState extends State<ProfileScreen> {
           MediaWidget(),
         ],
       ),
-      bottomNavigationBar: const BottomBar(),
     );
   }
 }

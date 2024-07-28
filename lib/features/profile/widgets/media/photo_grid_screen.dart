@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:vk/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:vk/widgets/profile/widgets/media/album_screen.dart';
+import 'package:vk/features//profile/widgets/media/album_screen.dart';
 
 
 class PhotoGridScreen extends StatefulWidget {
@@ -17,7 +14,6 @@ class _PhotoGridScreenState extends State<PhotoGridScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SliverTabBar(),
-      bottomNavigationBar: BottomBar(),
     );
   }
 }

@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:vk/data/news.dart';
-import 'package:vk/widgets/news_item/widgets/comments_button.dart';
-import 'package:vk/widgets/news_item/widgets/heart_button.dart';
-import 'package:vk/widgets/news_item/widgets/send_button.dart';
+import 'package:vk/features/home_page/news_item/widgets/comments_button.dart';
+import 'package:vk/features/home_page/news_item/widgets/heart_button.dart';
+import 'package:vk/features/home_page/news_item/widgets/send_button.dart';
 
 class NewsItemWidget extends StatefulWidget {
   const NewsItemWidget({super.key, required this.newsItem});

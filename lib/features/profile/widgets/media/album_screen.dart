@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vk/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:vk/widgets/profile/widgets/media/photo_grid_screen.dart';
 
 class AlbumScreen extends StatefulWidget {
   const AlbumScreen({super.key});

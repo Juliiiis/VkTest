@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vk/widgets/profile/widgets/publication_button.dart';
+import 'package:vk/features/profile/widgets/publication_button.dart';
 
 class UserCardWidget extends StatefulWidget {
   const UserCardWidget({super.key});

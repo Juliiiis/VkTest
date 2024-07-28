@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vk/widgets/profile/widgets/media/photo_table.dart';
+import 'package:vk/features//profile/widgets/media/photo_table.dart';
 
 class MediaWidget extends StatefulWidget {
   const MediaWidget({super.key});

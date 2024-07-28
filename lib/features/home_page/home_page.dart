@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:vk/data/news.dart';
 import 'package:vk/data/news_data.dart';
-import 'package:vk/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:vk/widgets/main_screen/add_menu_items.dart';
-import 'package:vk/widgets/news_item/news_item_widget.dart';
+import 'package:vk/features/home_page/add_menu_items.dart';
+import 'package:vk/features/home_page/news_item/news_item_widget.dart';
 
-class MainScreenWidget extends StatefulWidget {
-  const MainScreenWidget({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MainScreenWidget> createState() => _MainScreenWidgetState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MainScreenWidgetState extends State<MainScreenWidget> {
-  int _selectedTab = 0;
+class _HomePageState extends State<HomePage> {
   final _searchController = TextEditingController();
 
   var _filteredNews = <News>[];
@@ -37,12 +35,6 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
     setState(() {});
   }
 
-  void onSelectedTab(int index) {
-    if (_selectedTab == index) return;
-    setState(() {
-      _selectedTab = index;
-    });
-  }
   void _onTabAvatar(){
     Navigator.of(context).pushNamed('/profile');
   }
@@ -138,54 +130,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomBar(),
     );
   }
 }
 
-/*  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Главная'),
-        ),
-        body:  IndexedStack(
-          index: _selectedTab,
-          children: const [
-            NewsListWidget(),
-            Text('Сервисы'),
-            Text('Чаты'),
-            Text('Клипы'),
-            Text('Видео'),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedTab,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'Главная',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.widgets),
-              label: 'Сервисы',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble_outline),
-              label: 'Чаты',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.whatshot),
-              label: 'Клипы',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.play_circle_outline),
-              label: 'Видео',
-            ),
-          ],
-          onTap: onSelectedTab,
-        ),
-      );
-    }
-  }*/
