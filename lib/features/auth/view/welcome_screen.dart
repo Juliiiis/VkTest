@@ -14,40 +14,55 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Row(
-            children: [
-              Image(image: Images.pawLogo),
-              SizedBox(width: 8),
-              Text('Happy Pet', style: TextStyle(fontFamily: 'Ubuntu'),),
-            ],
-          ),
+      backgroundColor: const Color(0xFFEFF0F3),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFEFF0F3),
+        title: const Row(
+          children: [
+            Image(
+              image: Images.pawLogo,
+            ),
+            SizedBox(width: 8),
+            Text(
+              'Happy Pet',
+              style: TextStyle(fontFamily: 'Ubuntu'),
+            ),
+          ],
         ),
-        body: const Padding(
-          padding:  EdgeInsets.all(16.0),
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.,
-            children: [
-               //SizedBox(height: 80,),
-              SizedBox(
+      ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: 114.0,
+                top: 89,
+              ),
+              child: SizedBox(
+                width: 368,
                 height: 438,
-                  width: 368,
-                  child: Image(image: Images.welcomeDog),
+                child: Image(image: Images.welcomeDog),
               ),
-               Text(
-                  'Discover a world of joy and companionship at Happy Pet',
-                style: TextStyle(
-                  fontFamily: 'Ubuntu',
-                  fontSize: 30
-                ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 40),
+              child: Column(
+                children: [
+                  Text(
+                    'Discover a world of joy and companionship at Happy Pet',
+                    style: TextStyle(fontFamily: 'Ubuntu', fontSize: 30),
+                  ),
+                  SizedBox(height: 36),
+                  ButtonLogin(),
+                  SizedBox(height: 29),
+                  ButtonSignUp(),
+                  SizedBox(height: 72),
+                ],
               ),
-               SizedBox(height: 20),
-               ButtonLogin(),
-               SizedBox(height: 20),
-               ButtonSignUp(),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
     );
   }
 }
