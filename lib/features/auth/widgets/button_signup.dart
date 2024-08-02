@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonSignUp extends StatefulWidget {
   const ButtonSignUp({super.key});
@@ -12,8 +13,8 @@ class _ButtonSignUpState extends State<ButtonSignUp> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(446,50),
-        backgroundColor:  Colors.amber[600],
+        fixedSize: Size(347.w,50.h),
+        backgroundColor:  const Color(0xFFFF8E3C),
       ),
       onPressed: (){},
       child: const Text('SIGNUP', style: TextStyle(color: Colors.black)),

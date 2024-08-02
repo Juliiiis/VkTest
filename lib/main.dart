@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vk/my_app_vk.dart';
+import 'package:vk/happy_pet.dart';
 
 void main() {
-  runApp(const MyAppVk());
+  runApp(const HappyPet());
 }
 
 

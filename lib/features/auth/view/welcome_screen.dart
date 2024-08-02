@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vk/features/auth/widgets/button_login.dart';
 import 'package:vk/features/auth/widgets/button_signup.dart';
 import 'package:vk/ui_kit/images/images.dart';
+import 'package:vk/ui_kit/tokens/colors/pet_colors.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -14,54 +16,56 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEFF0F3),
+      backgroundColor: PetColors.background,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFEFF0F3),
-        title: const Row(
+        backgroundColor: PetColors.background,
+        title: Row(
           children: [
-            Image(
-              image: Images.pawLogo,
+            SizedBox(
+              height: 39.h,
+              width: 39.w,
+              child: const Image(
+                image: Images.pawLogo,
+              ),
             ),
-            SizedBox(width: 8),
+            SizedBox(width: 8.w),
             Text(
               'Happy Pet',
-              style: TextStyle(fontFamily: 'Ubuntu'),
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ],
         ),
       ),
-      body: const SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                left: 114.0,
-                top: 89,
-              ),
-              child: SizedBox(
-                width: 368,
-                height: 438,
-                child: Image(image: Images.welcomeDog),
-              ),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              left: 114.0.r,
+              top: 86.r,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                children: [
-                  Text(
-                    'Discover a world of joy and companionship at Happy Pet',
-                    style: TextStyle(fontFamily: 'Ubuntu', fontSize: 30),
-                  ),
-                  SizedBox(height: 36),
-                  ButtonLogin(),
-                  SizedBox(height: 29),
-                  ButtonSignUp(),
-                  SizedBox(height: 72),
-                ],
-              ),
+            child: SizedBox(
+              width: 368.w,
+              height: 438.h,
+              child: const Image(image: Images.welcomeDog),
             ),
-          ],
-        ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40.r),
+            child: Column(
+              children: [
+                Text(
+                  'Discover a world of joy and companionship at Happy Pet',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                SizedBox(height: 29.h),
+                const ButtonLogin(),
+                SizedBox(height: 29.h),
+                const ButtonSignUp(),
+                //SizedBox(height: 72.h),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
