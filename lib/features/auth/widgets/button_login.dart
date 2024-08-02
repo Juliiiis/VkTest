@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vk/ui_kit/controls/buttons/normal_button.dart';
 
 
 class ButtonLogin extends StatefulWidget {
@@ -17,13 +18,6 @@ class _ButtonLoginState extends State<ButtonLogin> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        fixedSize: Size(347.w,50.h),
-        //backgroundColor: PetColors.button
-      ),
-        onPressed: _login,
-        child: const Text('LOGIN', style: TextStyle(color: Colors.black)),
-    );
+    return NormalButton(title: 'LOGIN', onTap: _login);
   }
 }
