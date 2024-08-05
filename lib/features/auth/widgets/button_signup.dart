@@ -11,9 +11,6 @@ class ButtonSignUp extends StatefulWidget {
 class _ButtonSignUpState extends State<ButtonSignUp> {
   @override
   Widget build(BuildContext context) {
-    return NormalButton.outlined(
-      title: 'SIGNUP',
-      onTap: () {},
-    );
+    return NormalButton.outlined(title: 'SIGNUP', onTap: () {});
   }
 }

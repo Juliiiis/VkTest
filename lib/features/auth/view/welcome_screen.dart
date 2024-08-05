@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vk/features/auth/widgets/button_login.dart';
 import 'package:vk/features/auth/widgets/button_signup.dart';
 import 'package:vk/ui_kit/images/images.dart';
-import 'package:vk/ui_kit/tokens/colors/pet_colors.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -16,9 +15,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: PetColors.background,
       appBar: AppBar(
-        backgroundColor: PetColors.background,
         title: Row(
           children: [
             SizedBox(
@@ -29,9 +26,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
             SizedBox(width: 8.w),
-            Text(
+            const Text(
               'Happy Pet',
-              style: Theme.of(context).textTheme.titleSmall,
             ),
           ],
         ),

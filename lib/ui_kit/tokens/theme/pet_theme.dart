@@ -5,7 +5,12 @@ import 'package:vk/ui_kit/tokens/typography/pet_typography.dart';
 
 class PetTheme {
   static final ThemeData theme = ThemeData(
+    appBarTheme: AppBarTheme(
+      backgroundColor: PetColors.background,
+      titleTextStyle: PetTypography.appBarTitle,
+    ),
     textTheme: PetTypography.textTheme,
+    scaffoldBackgroundColor: PetColors.background,
     buttonTheme: const ButtonThemeData(
       buttonColor: PetColors.button,
     ),

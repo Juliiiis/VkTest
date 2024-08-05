@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vk/ui_kit/images/images.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -14,12 +16,34 @@ class _AuthScreenState extends State<AuthScreen> {
         appBar: AppBar(
           title: Row(
             children: [
-              Image.asset('assets/images/paw_logo.png'),
-              const SizedBox(width: 8),
-              const Text('Happy Pet', style: TextStyle(fontFamily: 'Ubuntu')),
+              SizedBox(
+                height: 39.h,
+                width: 39.w,
+                child: const Image(
+                  image: Images.pawLogo,
+                ),
+              ),
+              SizedBox(width: 8.w),
+              const Text(
+                'Happy Pet',
+              ),
             ],
           ),
         ),
+      body: Stack(
+        children: [
+          Positioned(
+            left: 187,
+            right: 0,
+            child: SizedBox(
+              width: 368.w,
+              height: 699.h,
+              child: const Image(image: Images.girlWithDog),
+            ),
+          ),
+          const Text('Login'),
+        ],
+      ),
     );
   }
 }

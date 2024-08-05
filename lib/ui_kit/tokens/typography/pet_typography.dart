@@ -40,11 +40,12 @@ class PetTypography{
       fontWeight: FontWeight.w500,
       color: PetColors.text,
     ),
-    titleSmall: TextStyle(
+  );
+
+  static TextStyle appBarTitle = TextStyle(
       fontSize: 13.sp,
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.bold,
-        color: PetColors.text,
-    ),
-  );
+      color: PetColors.text,
+    );
 }
